@@ -722,12 +722,12 @@
     line-height: 1.8;
   }
 
-  /* ── TESTIMONIALS ── */
-  .testimonials {
+  /* ── PRICING ── */
+  .pricing {
     background: var(--cream);
   }
 
-  .testi-grid {
+  .pricing-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
@@ -735,58 +735,91 @@
     margin: 0 auto;
   }
 
-  .testi-card {
+  .pricing-card {
     background: var(--cream-light);
     border: 1px solid var(--border);
     padding: 2.5rem 2rem;
     position: relative;
+    display: flex;
+    flex-direction: column;
   }
 
-  .testi-card::before {
-    content: '"';
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 5rem;
-    color: var(--gold-muted);
-    opacity: 0.3;
-    position: absolute;
-    top: 0.5rem;
-    left: 1.5rem;
-    line-height: 1;
+  .pricing-card.featured {
+    background: var(--ink);
+    border-color: var(--gold-muted);
   }
 
-  .testi-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.05rem;
-    font-style: italic;
-    color: var(--ink-mid);
-    line-height: 1.8;
-    margin-bottom: 1.8rem;
-    position: relative;
-    z-index: 1;
-  }
-
-  .testi-divider {
-    width: 2rem;
-    height: 1px;
-    background: var(--gold-muted);
-    opacity: 0.5;
-    margin-bottom: 1rem;
-  }
-
-  .testi-name {
-    font-size: 0.68rem;
-    letter-spacing: 0.2em;
+  .pricing-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
     color: var(--gold);
     font-weight: 400;
-    margin-bottom: 0.2rem;
+    margin-bottom: 1rem;
   }
 
-  .testi-role {
-    font-size: 0.75rem;
-    color: var(--muted);
-    font-style: italic;
+  .pricing-card.featured .pricing-label { color: var(--gold-light); }
+
+  .pricing-card h3 {
     font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.02em;
+    transition: none;
+  }
+
+  .pricing-card.featured h3 { color: var(--cream-light); }
+
+  .pricing-rate {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .pricing-rate-note {
+    font-size: 0.72rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    margin-bottom: 1.5rem;
+  }
+
+  .pricing-card.featured .pricing-rate-note { color: rgba(247,243,237,0.5); }
+
+  .pricing-divider {
+    width: 2rem;
+    height: 1px;
+    background: var(--gold-muted);
+    opacity: 0.4;
+    margin-bottom: 1.5rem;
+  }
+
+  .pricing-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--muted);
+    line-height: 1.8;
+    flex: 1;
+  }
+
+  .pricing-card.featured .pricing-desc { color: rgba(247,243,237,0.6); }
+
+  .pricing-detail {
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-top: 1rem;
+  }
+
+  .pricing-card.featured .pricing-detail { color: rgba(247,243,237,0.45); }
+
+  @media (max-width: 960px) {
+    .pricing-grid { grid-template-columns: 1fr; max-width: 480px; }
   }
 
   /* ── CTA ── */
@@ -975,6 +1008,7 @@
   <ul>
     <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
+    <li><a href="#pricing">Pricing</a></li>
     <li><a href="#why">Why KOVA</a></li>
     <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
   </ul>
@@ -985,7 +1019,7 @@
   <div class="corner-tl"></div>
   <div class="corner-tr"></div>
 
-  <div class="hero-eyebrow">Premium Virtual Assistance · Surrey</div>
+  <div class="hero-eyebrow">Virtual Assistance · Surrey</div>
 
   <div class="hero-logotype">
     <div class="logo-row1">
@@ -1014,22 +1048,22 @@
     <div class="strip-item">
       <span class="strip-icon">📋</span>
       <span class="strip-label">Admin</span>
-      <span class="strip-desc">Email &amp; calendar management</span>
+      <span class="strip-desc">Inbox, data entry &amp; database management</span>
     </div>
     <div class="strip-item">
       <span class="strip-icon">📅</span>
       <span class="strip-label">Diary</span>
-      <span class="strip-desc">Scheduling &amp; coordination</span>
+      <span class="strip-desc">Calendar management &amp; scheduling</span>
     </div>
     <div class="strip-item">
-      <span class="strip-icon">🏠</span>
+      <span class="strip-icon">✈️</span>
       <span class="strip-label">Lifestyle</span>
-      <span class="strip-desc">Personal errands &amp; events</span>
+      <span class="strip-desc">Travel, holidays &amp; accommodation</span>
     </div>
     <div class="strip-item">
       <span class="strip-icon">📊</span>
       <span class="strip-label">Accounts</span>
-      <span class="strip-desc">Tasks &amp; finance admin</span>
+      <span class="strip-desc">Invoices &amp; finance admin</span>
     </div>
   </div>
 
@@ -1044,7 +1078,6 @@
     <div class="about-portrait-wrap reveal">
       <div class="portrait-frame">
         <img src="Katie.jpg" alt="Katie O'Neill" class="portrait-image">
-        
         <div class="portrait-monogram">KO</div>
         <div class="portrait-label">Katie O'Neill</div>
         <div class="portrait-badge">
@@ -1074,7 +1107,7 @@
     <div class="service-card" data-num="01">
       <div class="service-icon-wrap">📋</div>
       <h3>Business Admin</h3>
-      <p class="service-desc">Document creation, filing, correspondence and day-to-day operations handled with quiet precision.</p>
+      <p class="service-desc">Formatting and typing documents, data entry, research, database management and sorting expenses — handled with care and precision.</p>
     </div>
     <div class="service-card" data-num="02">
       <div class="service-icon-wrap">📅</div>
@@ -1084,22 +1117,22 @@
     <div class="service-card" data-num="03">
       <div class="service-icon-wrap">📧</div>
       <h3>Inbox Management</h3>
-      <p class="service-desc">A clear, triaged inbox so you only see what truly needs your attention. Zero inbox anxiety.</p>
+      <p class="service-desc">Inbox management, customer service, data entry and database management — keeping your communications clear and professional.</p>
     </div>
     <div class="service-card" data-num="04">
       <div class="service-icon-wrap">🏠</div>
       <h3>Life Admin</h3>
-      <p class="service-desc">Appointments, errands, personal logistics — the life admin that eats your evenings, handled.</p>
+      <p class="service-desc">Arrange appointments and cancellations, book holidays and accommodation — the personal logistics that eat your time, sorted.</p>
     </div>
     <div class="service-card" data-num="05">
       <div class="service-icon-wrap">📊</div>
       <h3>Accounts Admin</h3>
-      <p class="service-desc">Invoice chasing, expense tracking and basic bookkeeping support — finances calm and organised.</p>
+      <p class="service-desc">Processing invoices and finance admin — keeping your finances organised and stress-free.</p>
     </div>
     <div class="service-card" data-num="06">
-      <div class="service-icon-wrap">◆</div>
-      <h3>Bespoke Support</h3>
-      <p class="service-desc">Many clients start with a tailored package. Let's talk and build something around your needs.</p>
+      <div class="service-icon-wrap">✈️</div>
+      <h3>Lifestyle</h3>
+      <p class="service-desc">Travel arrangements, booking holidays and accommodation — seamless planning so you can focus on what matters.</p>
     </div>
   </div>
 </section>
@@ -1118,7 +1151,7 @@
         <div class="pillar-num">01</div>
         <div>
           <h4>14 Years, Real Experience</h4>
-          <p>From FTSE-listed London firms to Surrey SMEs — I've seen what great support looks like and I bring that standard to every client.</p>
+          <p>From large corporate London firms to Surrey SMEs — I've seen what great support looks like and I bring that standard to every client.</p>
         </div>
       </div>
       <div class="pillar">
@@ -1146,30 +1179,43 @@
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="testimonials">
-  <div class="section-eyebrow reveal">Kind Words</div>
-  <h2 class="reveal">Clients who got <em>their time back</em></h2>
-  <p class="section-sub reveal">Surrey business owners who trusted KOVA with their most valuable asset — their time.</p>
-  <div class="testi-grid">
-    <div class="testi-card reveal">
-      <p class="testi-text">Katie took over my inbox and diary within days of starting and I genuinely cannot imagine going back. The clarity alone has transformed how I work.</p>
-      <div class="testi-divider"></div>
-      <div class="testi-name">Sarah M.</div>
-      <div class="testi-role">Founder, Lifestyle Brand · Guildford</div>
+<!-- PRICING -->
+<section class="pricing testimonials" id="pricing">
+  <div class="section-eyebrow reveal">Pricing</div>
+  <h2 class="reveal">Simple, <em>transparent</em> pricing</h2>
+  <p class="section-sub reveal">Choose the arrangement that works best for you — no hidden fees, no surprises.</p>
+  <div class="pricing-grid">
+
+    <div class="pricing-card reveal">
+      <div class="pricing-label">Retainer</div>
+      <h3>Monthly Hours</h3>
+      <div class="pricing-rate">£18<span style="font-size:1.2rem; color:var(--muted)">/hr</span></div>
+      <div class="pricing-rate-note">Starting from 5 hours per month</div>
+      <div class="pricing-divider"></div>
+      <p class="pricing-desc">Book a set number of hours each month and I'll be ready and waiting. Payment is required in advance of work commencing.</p>
+      <p class="pricing-detail">Ideal for clients with a consistent, ongoing workload who want dedicated, reliable support every month.</p>
     </div>
-    <div class="testi-card reveal">
-      <p class="testi-text">Professional, proactive, and completely trustworthy. KOVA handles things before I even realise they need handling. Worth every penny.</p>
-      <div class="testi-divider"></div>
-      <div class="testi-name">James R.</div>
-      <div class="testi-role">Director, Property Management · Surrey</div>
+
+    <div class="pricing-card featured reveal">
+      <div class="pricing-label">Pay As You Go</div>
+      <h3>Ad Hoc</h3>
+      <div class="pricing-rate">£20<span style="font-size:1.2rem; color:var(--gold-muted)">/hr</span></div>
+      <div class="pricing-rate-note">Billed at the end of each month</div>
+      <div class="pricing-divider"></div>
+      <p class="pricing-desc">Not sure how many hours you need? Pay only for the time used. I track my time and round to the nearest 15 minutes.</p>
+      <p class="pricing-detail">You'll receive a detailed time report alongside your monthly invoice — full transparency, always.</p>
     </div>
-    <div class="testi-card reveal">
-      <p class="testi-text">Finally — a VA who understands corporate standards but works with the flexibility I need as a small business owner. Katie is absolutely brilliant.</p>
-      <div class="testi-divider"></div>
-      <div class="testi-name">Claire T.</div>
-      <div class="testi-role">Independent Consultant · Reigate</div>
+
+    <div class="pricing-card reveal">
+      <div class="pricing-label">Projects</div>
+      <h3>One-Off</h3>
+      <div class="pricing-rate" style="font-size:1.8rem; padding-top:0.4rem;">Fixed<br>Price</div>
+      <div class="pricing-rate-note">Quoted per project</div>
+      <div class="pricing-divider"></div>
+      <p class="pricing-desc">Have a one-off project that needs expert assistance? Once we've discussed your brief, I'll provide a set price for the whole task.</p>
+      <p class="pricing-detail">Perfect for launches, events, research projects or any task with a clear start and finish.</p>
     </div>
+
   </div>
 </section>
 
@@ -1190,6 +1236,7 @@
   <div class="footer-links">
     <a href="#about">About</a>
     <a href="#services">Services</a>
+    <a href="#pricing">Pricing</a>
     <a href="#contact">Contact</a>
   </div>
 </footer>
@@ -1208,3 +1255,5 @@
 </script>
 </body>
 </html>
+
+Updated website design
